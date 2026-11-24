@@ -1,2 +1,9 @@
 24-11-2026 13:24:49
 24-11-2026 13:24:57    1  git init
+24-11-2026 13:25:07    2  git add .
+24-11-2026 13:25:17    3  git commit -m "Initial portfolio upload"
+24-11-2026 13:25:34    4  git branch -M main
+24-11-2026 13:25:43    5  git remote add origin https://github.com/YOUR_USERNAME/khalid-portfolio.git
+24-11-2026 13:26:13    6  git remote -v
+24-11-2026 13:26:36    7  git remote set-url origin https://github.com/khalidhasan1102/khalid-portfolio.git
+24-11-2026 13:26:46    8  git remote -v
