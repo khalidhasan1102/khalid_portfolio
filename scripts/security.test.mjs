@@ -1,0 +1,46 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {promises as fs} from 'node:fs';import os from 'node:os';import path from 'node:path';import http from 'node:http';import ts from 'typescript';
+import {createBackend,initializeAdmin,verifyPassword} from './portfolio-backend.mjs';
+const source=ts.transpileModule(await fs.readFile(new URL('../lib/portfolio-schema.ts',import.meta.url),'utf8'),{compilerOptions:{module:ts.ModuleKind.ESNext,target:ts.ScriptTarget.ES2022}}).outputText;
+const {validatePortfolio}=await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));
+const password='Test-only-long-password-2026!';
+async function fixture(options={}){const root=await fs.mkdtemp(path.join(os.tmpdir(),'khalid-security-'));await fs.mkdir(path.join(root,'public'));await fs.copyFile(new URL('../public/portfolio-content.json',import.meta.url),path.join(root,'public/portfolio-content.json'));await initializeAdmin(path.join(root,'.portfolio-private'),'owner@example.com',password);let handler;const server=http.createServer((req,res)=>handler(req,res,()=>{res.end('Public portfolio or page')}));await new Promise(r=>server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+server.address().port;let clock=Date.now();const sent=[];const env={PUBLIC_BASE_URL:options.secure?base.replace('http:','https:'):base,ADMIN_EMAIL:'owner@example.com',...options.env};const backend=createBackend({root,env,validatePortfolio,now:()=>clock,...(options.noEmail?{}:{mailTransport:async message=>{if(options.mailFails)throw Error('Simulated outage');sent.push(message);}})});handler=backend.handler;let cookie='',csrf='';
+async function request(url,data,auth=true,extra={}){const headers={Origin:env.PUBLIC_BASE_URL,...(auth?{Cookie:cookie,'X-Portfolio-Token':csrf}:{}),...extra};return fetch(base+url,{method:data===undefined?'GET':'POST',redirect:'manual',headers:{...headers,...(data===undefined?{}:{'Content-Type':'application/json'})},...(data===undefined?{}:{body:JSON.stringify(data)})});}
+async function login(pass=password){const r=await request('/api/auth/login',{email:'owner@example.com',password:pass},false);if(r.ok){cookie=r.headers.get('set-cookie').split(';')[0];const state=await (await request('/api/auth/session')).json();csrf=state.csrf;}return r;}
+return {root,base,sent,request,login,advance:ms=>clock+=ms,getCookie:()=>cookie,getCsrf:()=>csrf,cleanup:async()=>{await new Promise(r=>server.close(r));await fs.rm(root,{recursive:true,force:true});}};}
+test('public portfolio, protected admin routes/APIs, password hashes, CSRF, save/upload and logout',async()=>{const f=await fixture();try{
+assert.equal((await f.request('/',undefined,false)).status,200);
+const redirect=await f.request('/admin',undefined,false);assert.equal(redirect.status,303);assert.equal(redirect.headers.get('location'),'/admin/login');
+for(const route of ['/__portfolio_admin/state','/__portfolio_admin/messages'])assert.equal((await f.request(route,undefined,false)).status,401);
+assert.equal((await f.request('/__portfolio_admin/save',{},false)).status,401);
+assert.equal((await f.request('/__portfolio_admin/upload',{},false)).status,401);
+assert.equal((await f.login('incorrect password')).status,401);
+const logged=await f.login();assert.equal(logged.status,200);assert.match(logged.headers.get('set-cookie'),/HttpOnly; SameSite=Strict/);
+const record=JSON.parse(await fs.readFile(path.join(f.root,'.portfolio-private/account.json'),'utf8'));assert.equal(record.algorithm,'scrypt-N32768-r8-p1');assert(!JSON.stringify(record).includes(password));assert(await verifyPassword(password,record));
+assert.equal((await f.request('/admin')).status,200);
+const state=await (await f.request('/__portfolio_admin/state')).json();state.data.experience[0].title='Edited job title';state.data.skills[0].title='Edited skill';state.data.research[0].objective='Admin edited objective';
+assert.equal((await f.request('/__portfolio_admin/save',{data:state.data,revision:state.revision},true,{'X-Portfolio-Token':'wrong'})).status,403);
+assert.equal((await f.request('/__portfolio_admin/save',{data:state.data,revision:state.revision},true,{Origin:'https://evil.example'})).status,403);
+assert.equal((await f.request('/__portfolio_admin/save',{data:state.data,revision:state.revision})).status,200);
+assert.equal((await f.request('/__portfolio_admin/save',{data:state.data,revision:state.revision})).status,409);
+const stored=JSON.parse(await fs.readFile(path.join(f.root,'public/portfolio-content.json'),'utf8'));assert.equal(stored.experience[0].title,'Edited job title');assert.equal(stored.research[0].objective,'Admin edited objective');
+const upload=await fetch(f.base+'/__portfolio_admin/upload',{method:'POST',headers:{Origin:f.base,Cookie:f.getCookie(),'X-Portfolio-Token':f.getCsrf(),'X-File-Kind':'image'},body:Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/l9sAAAAASUVORK5CYII=','base64')});assert.equal(upload.status,200);
+assert.equal((await f.request('/api/auth/logout',{})).status,200);assert.equal((await f.request('/__portfolio_admin/state')).status,401);
+}finally{await f.cleanup();}});
+test('reset email, expiry, single use, new password and session invalidation',async()=>{const f=await fixture();try{
+await f.login();const response=await f.request('/api/auth/forgot',{email:'owner@example.com'},false);assert.equal(response.status,200);const generic=await response.json();assert.deepEqual(await (await f.request('/api/auth/forgot',{email:'unknown@example.com'},false)).json(),generic);assert.equal(f.sent.length,1);
+const token=f.sent[0].text.match(/#token=([a-f0-9]+)/)[1];assert(!(await fs.readFile(path.join(f.root,'.portfolio-private/account.json'),'utf8')).includes(token));
+f.advance(31*60e3);assert.equal((await f.request('/api/auth/reset',{token,password:'New-long-password-2026!',confirmPassword:'New-long-password-2026!'},false)).status,400);
+await f.request('/api/auth/forgot',{email:'owner@example.com'},false);const current=f.sent.at(-1).text.match(/#token=([a-f0-9]+)/)[1];const payload={token:current,password:'New-long-password-2026!',confirmPassword:'New-long-password-2026!'};
+assert.equal((await f.request('/api/auth/reset',payload,false)).status,200);assert.equal((await f.request('/__portfolio_admin/state')).status,401);assert.equal((await f.request('/api/auth/reset',payload,false)).status,400);assert.equal((await f.login()).status,401);assert.equal((await f.login(payload.password)).status,200);f.advance(9*60*60e3);assert.equal((await f.request('/api/auth/session')).status,401);
+}finally{await f.cleanup();}});
+test('public contact validation, durable inbox, notification, read/unread and delete',async()=>{const f=await fixture();try{
+assert.equal((await f.request('/api/contact',{name:'',email:'bad'},false)).status,400);
+const response=await f.request('/api/contact',{name:'Visitor',email:'visitor@example.com',subject:'Mapping project',message:'Can we discuss this mapping project?'},false);assert.equal(response.status,201);assert.equal((await response.json()).notificationSent,true);assert.equal(f.sent[0].to,'owner@example.com');assert.equal(f.sent[0].replyTo,'visitor@example.com');
+await f.login();const rows=(await (await f.request('/__portfolio_admin/messages')).json()).messages;assert.equal(rows.length,1);assert.equal(rows[0].read,false);
+for(const action of ['read','unread']){assert.equal((await f.request('/__portfolio_admin/messages',{id:rows[0].id,action})).status,200);assert.equal((await (await f.request('/__portfolio_admin/messages')).json()).messages[0].read,action==='read');}
+assert.equal((await f.request('/__portfolio_admin/messages',{id:rows[0].id,action:'delete'})).status,200);assert.equal((await (await f.request('/__portfolio_admin/messages')).json()).messages.length,0);
+}finally{await f.cleanup();}});
+test('mail outage preserves message and reports notification unavailable',async()=>{const f=await fixture({mailFails:true});try{const r=await f.request('/api/contact',{name:'Visitor',email:'v@example.com',subject:'Subject',message:'Message'},false);assert.equal(r.status,201);assert.equal((await r.json()).notificationSent,false);assert.equal(JSON.parse(await fs.readFile(path.join(f.root,'.portfolio-private/messages.json'),'utf8'))[0].notification,'failed');}finally{await f.cleanup();}});
+test('missing email setup is explicit and login brute force is limited',async()=>{const f=await fixture({noEmail:true});try{assert.equal((await f.request('/api/auth/forgot',{email:'owner@example.com'},false)).status,503);for(let i=0;i<10;i++)assert.equal((await f.login('incorrect password')).status,401);assert.equal((await f.login()).status,429);}finally{await f.cleanup();}});
+
+test('production sessions require HTTPS configuration and Secure cookies',async()=>{assert.throws(()=>createBackend({root:'.',validatePortfolio,env:{NODE_ENV:'production',PUBLIC_BASE_URL:'http://example.com'}}),/HTTPS/);const f=await fixture({secure:true,env:{NODE_ENV:'production'}});try{const r=await f.login();assert.equal(r.status,200);assert.match(r.headers.get('set-cookie'),/^__Host-portfolio_session=/);assert.match(r.headers.get('set-cookie'),/; Secure/);}finally{await f.cleanup();}});

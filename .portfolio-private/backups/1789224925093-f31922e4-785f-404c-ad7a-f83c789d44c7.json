@@ -1,0 +1,579 @@
+{
+  "personal": {
+    "educationSubtitle": "Building a foundation in geography, environment and geospatial science.",
+    "skillsSubtitle": "GIS, remote sensing & photogrammetry",
+    "coursesSubtitle": "Building skills for a more informed and spatially enabled world.",
+    "workSubtitle": "Building reliable geospatial data through imagery, analysis and field-informed mapping.",
+    "researchSubtitle": "Exploring land, water and environmental change through geospatial analysis.",
+    "gallerySubtitle": "Fieldwork, maps and geospatial perspectives",
+    "contactSubtitle": "For geospatial projects, research collaboration or professional opportunities.",
+    "primaryLabel": "Experiences",
+    "primaryTarget": "Work Experience",
+    "secondaryLabel": "Education",
+    "secondaryTarget": "Education",
+    "expertise1": "GIS & Spatial Analysis",
+    "expertise1Text": "Mapping, topology and spatial data quality",
+    "expertise2": "Photogrammetry",
+    "expertise2Text": "Stereo digitization and 3D feature extraction",
+    "expertise3": "Programming",
+    "expertise3Text": "Learning programming for data and geospatial workflows",
+    "academicFocus": [
+      "GIS & Cartography",
+      "Remote Sensing",
+      "Environmental Studies",
+      "Machine Learning",
+      "Data Science",
+      "GeoAI"
+    ],
+    "profileImage": "/images/khalid-portrait.jpg",
+    "about": "I’m Md. Khalid Hasan, a Dhaka-based GIS professional and Junior Photogrammetrist at The Decode Ltd. My work focuses on stereo digitization, 3D feature extraction and spatial data quality, using aerial and satellite imagery to create reliable geospatial information.\n\nMy academic background is in Geography and Environment at Dhaka College. Through my work with CEGIS, GMGI and GPAD, I have gained experience in land-use mapping, image interpretation, topology validation and GIS support for planning. I work with ArcGIS Pro, ArcMap and DAT/EM Summit Evolution, and I am interested in land-cover change, environmental research and the connection between field observations and mapped data.",
+    "name": "Md. Khalid Hasan",
+    "heroFirst": "Md. Khalid",
+    "heroLast": "Hasan",
+    "role": "Junior Photogrammetrist & GIS Analyst",
+    "intro": "Turning spatial data into meaningful insights through GIS, remote sensing and photogrammetry.",
+    "heroImage": "/uploads/93dbc4cd-26e9-4f3e-974a-5bbc94ecec4b.png",
+    "location": "Mirpur 12, Dhaka, Bangladesh",
+    "company": "The Decode Ltd.",
+    "since": "March 2026",
+    "email": "khalid.dc24@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/khalidhasanlimon",
+    "github": "https://github.com/khalidhasan1102",
+    "cvUrl": "/khalid_cv_01.pdf"
+  },
+  "gallery": [
+    {
+      "context": "",
+      "title": "River Landscapes",
+      "category": "Fieldwork",
+      "caption": "Sample image",
+      "image": "/images/gallery-river.webp"
+    },
+    {
+      "context": "",
+      "title": "Land Cover Mapping",
+      "category": "GIS Maps",
+      "caption": "Sample image",
+      "image": "/images/gallery-cover.webp"
+    },
+    {
+      "context": "",
+      "title": "Field Observations",
+      "category": "Fieldwork",
+      "caption": "Sample image",
+      "image": "/images/gallery-field.webp"
+    },
+    {
+      "context": "",
+      "title": "3D Mapping",
+      "category": "Photogrammetry",
+      "caption": "Sample image",
+      "image": "/images/gallery-3d.webp"
+    },
+    {
+      "context": "",
+      "title": "Landscape & Ecology",
+      "category": "Nature",
+      "caption": "Sample image",
+      "image": "/images/gallery-nature.webp"
+    },
+    {
+      "context": "",
+      "title": "Terrain Analysis",
+      "category": "GIS Maps",
+      "caption": "Sample image",
+      "image": "/images/gallery-terrain.webp"
+    },
+    {
+      "context": "",
+      "title": "Flood Risk Map",
+      "category": "GIS Maps",
+      "caption": "Flood Risk Analysis — repository map",
+      "image": "/images/project-flood.png"
+    },
+    {
+      "context": "",
+      "title": "Land Use Map",
+      "category": "GIS Maps",
+      "caption": "LULC Change Analysis — repository map",
+      "image": "/images/project-lulc.png"
+    }
+  ],
+  "research": [
+    {
+      "githubUrl": "https://github.com/khalidhasan1102/LULC_Change_Analysis",
+      "skills": [
+        "Image classification",
+        "Change detection"
+      ],
+      "objective": "",
+      "dataUsed": "Landsat imagery and administrative boundaries.",
+      "toolsUsed": "ArcMap, ArcGIS Pro, QGIS, Microsoft Excel",
+      "methodology": "",
+      "result": "",
+      "title": "LULC Change Analysis",
+      "description": "Mapping land-use and land-cover changes using satellite imagery and GIS.",
+      "image": "/images/project-lulc.png",
+      "caption": "Repository map",
+      "categories": [
+        "GIS & Mapping",
+        "Remote Sensing"
+      ],
+      "tags": [
+        "GIS",
+        "Remote Sensing",
+        "Land Use"
+      ],
+      "details": "The repository documents image classification, map preparation and change detection.",
+      "link": ""
+    },
+    {
+      "githubUrl": "https://github.com/khalidhasan1102/LULC_and_SocioEconomic_Study_Dulahajara",
+      "skills": [
+        "Spatial digitization",
+        "Survey data integration"
+      ],
+      "objective": "",
+      "dataUsed": "Field observations and household questionnaire surveys.",
+      "toolsUsed": "ArcGIS Pro, ArcMap, QGIS, Microsoft Excel, Google Sheets",
+      "methodology": "",
+      "result": "",
+      "title": "Dulahajara Land Use & Socio-Economic Study",
+      "description": "Linking field survey observations and household data with GIS land-use mapping.",
+      "image": "/images/research-survey.webp",
+      "caption": "Illustrative preview",
+      "categories": [
+        "GIS & Mapping"
+      ],
+      "tags": [
+        "Field Survey",
+        "Land Use",
+        "Mapping"
+      ],
+      "details": "Academic study of Dulahajara Mouza, Chakaria, Cox’s Bazar. The repository describes digitization, attribute integration and thematic mapping.",
+      "link": ""
+    },
+    {
+      "githubUrl": "https://github.com/khalidhasan1102/Flood_Risk_Analysis",
+      "skills": [
+        "Overlay analysis",
+        "Risk mapping"
+      ],
+      "objective": "Identify flood-prone areas and support disaster planning.",
+      "dataUsed": "DEM, river and drainage data, rainfall data.",
+      "toolsUsed": "ArcMap, ArcGIS Pro",
+      "methodology": "Elevation and slope analysis; buffer and overlay analysis; flood risk zoning.",
+      "result": "Flood risk and hazard zonation maps.",
+      "title": "Flood Risk Analysis",
+      "description": "GIS-based flood risk mapping using elevation, drainage and rainfall data.",
+      "image": "/images/project-flood.png",
+      "caption": "Repository map",
+      "categories": [
+        "GIS & Mapping"
+      ],
+      "tags": [
+        "ArcGIS Pro",
+        "ArcMap",
+        "Flood Risk"
+      ],
+      "details": "The repository describes spatial preparation, slope analysis, buffers, overlays and risk zoning.",
+      "link": ""
+    }
+  ],
+  "education": [
+    {
+      "subject": "",
+      "academicFocus": "",
+      "coursework": [],
+      "title": "Master’s in Geography & Environment",
+      "college": "Dhaka College",
+      "session": "2024–2025",
+      "affiliation": "",
+      "status": "Ongoing",
+      "cgpa": "",
+      "note": "Deepening knowledge in geography, environmental systems and geospatial approaches to understand and address real-world challenges.",
+      "image": "/images/college.webp"
+    },
+    {
+      "subject": "",
+      "academicFocus": "",
+      "coursework": [],
+      "title": "BSc (Honours) in Geography & Environment",
+      "college": "Dhaka College",
+      "session": "2020–2021",
+      "affiliation": "Affiliated with the University of Dhaka",
+      "status": "Completed",
+      "cgpa": "3.51 / 4.00",
+      "note": "Built a strong foundation in geographical concepts, environmental systems and spatial analysis, with an emphasis on understanding people–environment interactions.",
+      "image": "/images/university.webp"
+    },
+    {
+      "subject": "",
+      "academicFocus": "",
+      "coursework": [],
+      "title": "Higher Secondary Certificate (HSC)",
+      "college": "Govt. Mir Ismail hossen college",
+      "session": "2020",
+      "affiliation": "",
+      "status": "Completed",
+      "cgpa": "3.67",
+      "note": "Built a strong foundation in geographical concepts, environmental systems and spatial analysis, with an emphasis on understanding people–environment interactions.",
+      "image": "/uploads/54c88037-60bc-449a-ad51-f36b2bb865e2.webp"
+    }
+  ],
+  "courses": [
+    {
+      "title": "Integrating Climate Change in UNICEF's Planning & Programming",
+      "eyebrow": "CLIMATE CHANGE & SUSTAINABILITY",
+      "date": "October 17, 2024",
+      "provider": "UNITAR / UN CC:Learn / UNICEF",
+      "text": "Completed training on integrating climate change considerations into UNICEF planning and programming.",
+      "tags": [
+        "Climate Change",
+        "Sustainability",
+        "UN Programs"
+      ],
+      "image": "/images/certificates/integrating-climate-change.png"
+    },
+    {
+      "title": "Net Zero 101: What, Why and How",
+      "eyebrow": "SUSTAINABILITY & NET ZERO",
+      "date": "October 11, 2024",
+      "provider": "United Nations University – IAS",
+      "text": "Completed the e-learning course on the fundamentals of net zero, its importance and implementation.",
+      "tags": [
+        "Net Zero",
+        "Climate Action",
+        "Sustainability"
+      ],
+      "image": "/images/certificates/net-zero-101.png"
+    },
+    {
+      "title": "Research Strategy: Review Paper Writing",
+      "eyebrow": "RESEARCH & ACADEMIC SKILLS",
+      "date": "September 14, 2025",
+      "provider": "Grameenphone Academy / Amar iSchool",
+      "text": "Completed training on research strategy, review paper writing and participation in academic competitions.",
+      "tags": [
+        "Research Writing",
+        "Academic Skills",
+        "Research Strategy"
+      ],
+      "image": "/images/certificates/research-paper-writing.png"
+    },
+    {
+      "title": "Graphic Design, Level 3",
+      "eyebrow": "PROFESSIONAL SKILLS",
+      "date": "November 23, 2024",
+      "provider": "National Skills Development Authority (NSDA)",
+      "text": "National Skills Certificate in Graphic Design, Level 3.",
+      "tags": [
+        "Graphic Design",
+        "Creative Tools",
+        "Professional Skills"
+      ],
+      "image": "/images/certificates/graphic-design-level-3.png"
+    },
+    {
+      "title": "Specialized Module on Children and Climate Change",
+      "eyebrow": "CLIMATE CHANGE & CHILDREN",
+      "date": "October 11, 2024",
+      "provider": "UNITAR / UN CC:Learn / UNICEF",
+      "text": "Completed the specialized module focused on children and climate change.",
+      "tags": [
+        "Children & Climate",
+        "Sustainability",
+        "UN Programs"
+      ],
+      "image": "/images/certificates/children-climate-change.png"
+    },
+    {
+      "title": "English Language Training",
+      "eyebrow": "LANGUAGE & COMMUNICATION",
+      "date": "Update from certificate",
+      "provider": "English Therapy",
+      "text": "Professional English language training focused on communication, fluency and academic or workplace use.",
+      "tags": [
+        "English",
+        "Communication",
+        "Professional Development"
+      ],
+      "image": "/images/certificates/english-language-placeholder.png"
+    },
+    {
+      "title": "Python Programming",
+      "eyebrow": "PROGRAMMING & AUTOMATION",
+      "date": "Update from certificate",
+      "provider": "Update from certificate",
+      "text": "Python programming training covering core concepts, problem solving and practical automation.",
+      "tags": [
+        "Python",
+        "Programming",
+        "Automation"
+      ],
+      "image": "/images/certificates/python-programming-placeholder.png"
+    },
+    {
+      "title": "Artificial Intelligence",
+      "eyebrow": "ARTIFICIAL INTELLIGENCE",
+      "date": "Update from certificate",
+      "provider": "Update from certificate",
+      "text": "Artificial Intelligence training covering foundational concepts and practical applications.",
+      "tags": [
+        "AI",
+        "Machine Learning",
+        "Technology"
+      ],
+      "image": "/images/certificates/artificial-intelligence-placeholder.png"
+    },
+    {
+      "title": "3rd DCCC naional cultural fiesta-2025",
+      "eyebrow": "Cultural",
+      "date": "18th October 2025",
+      "provider": "Dhaka College Cultural Club",
+      "text": "Awarded a Participation Certificate for active participation in the Recitation Segment of the 3rd DCCC National Cultural Fiesta–2025, recognizing valuable involvement and creative contribution to the event.",
+      "tags": [
+        "Recitation",
+        "Public Speaking",
+        "Stage Performance",
+        "Confidence"
+      ],
+      "image": "/uploads/a681fc41-6f2f-4d04-98a7-9208c4da24d0.png"
+    },
+    {
+      "title": "Red Crescent Youth – Active Member Recognition",
+      "eyebrow": "Volunteering & Recognition",
+      "date": "12 December 2022 – 11 December 2025",
+      "provider": "Red Crescent Youth, Dhaka College Unit",
+      "text": "Recognized for outstanding performance and valuable contribution as an **Active Member** of the Red Crescent Youth, Dhaka College Unit.",
+      "tags": [
+        "Volunteering",
+        "Humanitarian Service",
+        "Teamwork",
+        "Leadership"
+      ],
+      "image": "/uploads/7a6562a1-6601-4773-8c42-6bdf22433479.png"
+    }
+  ],
+  "softSkills": [
+    {
+      "title": "Communication",
+      "text": "Clear verbal and written communication for effective collaboration and presenting complex ideas to different audiences.",
+      "percentage": "92",
+      "image": "",
+      "icon": "MessagesSquare"
+    },
+    {
+      "title": "Problem Solving",
+      "text": "Identifying challenges, analyzing their causes and developing practical solutions.",
+      "percentage": "90",
+      "image": "",
+      "icon": "Puzzle"
+    },
+    {
+      "title": "Working Under Pressure",
+      "text": "Maintaining quality and focus under pressure by managing priorities and approaching deadlines calmly.",
+      "percentage": "88",
+      "image": "",
+      "icon": "Gauge"
+    },
+    {
+      "title": "Decision Making",
+      "text": "Evaluating options and making informed decisions through logical analysis and critical thinking.",
+      "percentage": "85",
+      "image": "",
+      "icon": "Waypoints"
+    },
+    {
+      "title": "Teamwork",
+      "text": "Working collaboratively with diverse teams, sharing responsibilities and supporting common goals.",
+      "percentage": "93",
+      "image": "",
+      "icon": "Users"
+    },
+    {
+      "title": "Time Management",
+      "text": "Prioritizing tasks, coordinating multiple responsibilities and keeping work on schedule.",
+      "percentage": "90",
+      "image": "",
+      "icon": "Clock3"
+    }
+  ],
+  "skills": [
+    {
+      "group": "Core Geospatial",
+      "level": "",
+      "topics": [
+        "ArcGIS Pro",
+        "ArcMap",
+        "GIS & Spatial Analysis",
+        "Land-use Mapping",
+        "Topology & Data Quality"
+      ],
+      "percentage": "92",
+      "title": "ArcGIS Pro & ArcMap",
+      "text": "Spatial analysis, land use mapping and topology validation.",
+      "image": "/images/skill-0.webp",
+      "icon": "Globe"
+    },
+    {
+      "group": "Photogrammetry",
+      "level": "",
+      "topics": [
+        "Stereo Digitization",
+        "3D Feature Extraction",
+        "Photogrammetric Compilation",
+        "Quality Control"
+      ],
+      "percentage": "90",
+      "title": "DAT/EM Summit Evolution",
+      "text": "Stereo digitization, 3D feature extraction and quality control.",
+      "image": "/images/skill-1.webp",
+      "icon": "Mountain"
+    },
+    {
+      "group": "Remote Sensing",
+      "level": "",
+      "topics": [
+        "Satellite Image Interpretation",
+        "LULC Mapping",
+        "Change Detection",
+        "Remote Sensing Analysis"
+      ],
+      "percentage": "88",
+      "title": "Remote Sensing",
+      "text": "Satellite image interpretation, LULC mapping and change detection.",
+      "image": "/images/skill-2.webp",
+      "icon": "Satellite"
+    },
+    {
+      "group": "Supporting Tools",
+      "level": "",
+      "topics": [],
+      "percentage": "95",
+      "title": "Microsoft Office",
+      "text": "Research documents, spreadsheets and presentations.",
+      "image": "/images/skill-3.webp",
+      "icon": "Files"
+    },
+    {
+      "group": "Data & Programming",
+      "level": "",
+      "topics": [
+        "SPSS",
+        "R"
+      ],
+      "percentage": "78",
+      "title": "SPSS & R",
+      "text": "Statistical analysis and quantitative data processing.",
+      "image": "/images/skill-4.webp",
+      "icon": "ChartNoAxesColumnIncreasing"
+    },
+    {
+      "group": "Supporting Tools",
+      "level": "",
+      "topics": [
+        "Photoshop",
+        "Illustrator"
+      ],
+      "percentage": "82",
+      "title": "Photoshop & Illustrator",
+      "text": "Map layouts, visual design and research graphics.",
+      "image": "/images/skill-5.webp",
+      "icon": "PenTool"
+    },
+    {
+      "group": "Data & Programming",
+      "level": "Learning / Basic",
+      "topics": [],
+      "percentage": "72",
+      "title": "Basic Python",
+      "text": "Learning programming for data and geospatial workflows.",
+      "image": "/images/skill-6.webp",
+      "icon": "CodeXml"
+    },
+    {
+      "group": "Research",
+      "level": "",
+      "topics": [
+        "Data Collection"
+      ],
+      "percentage": "86",
+      "title": "Field Research",
+      "text": "Surveys, environmental observations and data collection.",
+      "image": "/images/skill-7.webp",
+      "icon": "Footprints"
+    },
+    {
+      "group": "Research",
+      "level": "",
+      "topics": [],
+      "percentage": "88",
+      "title": "Research & Reporting",
+      "text": "Literature review, academic writing and communication.",
+      "image": "/images/skill-8.webp",
+      "icon": "FilePenLine"
+    },
+    {
+      "group": "Remote Sensing",
+      "level": "",
+      "topics": [],
+      "percentage": "85",
+      "title": "ERDAS IMAGINE",
+      "text": "Satellite image processing, classification and land-cover analysis.",
+      "image": "",
+      "icon": "Satellite"
+    }
+  ],
+  "experience": [
+    {
+      "imageCaption": "Personal project: flood-risk map",
+      "title": "Junior Photogrammetrist",
+      "company": "The Decode Ltd.",
+      "date": "Mar 2026 — Present",
+      "text": "Photogrammetric data processing, 3D feature extraction and precise digitization using stereo aerial imagery and DAT/EM Summit Evolution.",
+      "tags": [
+        "Stereo imagery",
+        "3D extraction",
+        "Quality control"
+      ],
+      "image": "/images/project-flood.png"
+    },
+    {
+      "imageCaption": "Personal project: land-use map",
+      "title": "Research Consultant, Remote Sensing Division",
+      "company": "Center for Environmental and Geographic Information Services (CEGIS)",
+      "date": "Apr 2025 — Jun 2025",
+      "text": "Land-use mapping, digitization, visual interpretation, thematic extraction and topology-ready GIS layer preparation using high-resolution satellite imagery.",
+      "tags": [
+        "Land use mapping",
+        "Satellite imagery"
+      ],
+      "image": "/images/project-lulc.png"
+    },
+    {
+      "imageCaption": "Personal project: flood-risk map",
+      "title": "GIS Analyst",
+      "company": "Geomatics and Geoinformatics Solutions Ltd. (GMGI)",
+      "date": "Nov 2024 — Apr 2025",
+      "text": "Spatial data validation, topology rules, digitization, visual interpretation and feature extraction.",
+      "tags": [
+        "Topology",
+        "Data quality"
+      ],
+      "image": "/images/project-flood.png"
+    },
+    {
+      "imageCaption": "Personal project: land-use map",
+      "title": "GIS & Planning Support",
+      "company": "Geo Planning for Advanced Development (GPAD)",
+      "date": "Project-based / Remote",
+      "text": "GIS digitization, buffer analysis and topology validation using aerial and drone imagery for urban planning support.",
+      "tags": [
+        "Drone imagery",
+        "Buffer analysis"
+      ],
+      "image": "/images/project-lulc.png"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+services:
+  portfolio:
+    build:
+      context: .
+    image: khalid-portfolio:latest
+    container_name: khalid-portfolio
+    restart: unless-stopped
+    # Binds on every interface so other devices can reach it.
+    ports:
+      - "0.0.0.0:3000:3000"
+    env_file:
+      - .env.docker
+    environment:
+      HOST: 0.0.0.0
+      PORT: "3000"
+      PORTFOLIO_DATA_DIR: /app/.portfolio-private
+    volumes:
+      # Keep admin credentials, messages and uploads outside the container.
+      - ./.portfolio-private:/app/.portfolio-private
+      - ./public:/app/public
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:3000/').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
