@@ -7,3 +7,10 @@
 24-11-2026 13:26:13    6  git remote -v
 24-11-2026 13:26:36    7  git remote set-url origin https://github.com/khalidhasan1102/khalid-portfolio.git
 24-11-2026 13:26:46    8  git remote -v
+24-11-2026 13:26:59   12  git push -u origin main
+24-11-2026 13:28:10   13  git remote set-url origin https://github.com/khalidhasan1102/khalid_portfolio.git
+24-11-2026 13:28:16   14  git remote -v
+24-11-2026 13:28:27   15  git push -u origin main
+24-11-2026 13:30:09   16  git push -u origin main --force
+24-11-2026 13:36:23   17  ush
+24-11-2026 13:36:31   18  push
