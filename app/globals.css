@@ -1264,10 +1264,35 @@ a:hover { filter: brightness(1.025); }
   font-variant-numeric: tabular-nums;
 }
 
-.skill-progress [data-slot=progress-track] { height: 8px; background: #dceaf7; border-radius: 20px; }
-.skill-progress [data-slot=progress-indicator] {
-  background: linear-gradient(90deg, #236ca2, #249da9);
+.skill-progress [data-slot=progress-track] {
+  height: 8px;
+  background: #dceaf7;
   border-radius: 20px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(32, 93, 120, .08);
+}
+.skill-progress [data-slot=progress-indicator] {
+  position: relative;
+  background: linear-gradient(90deg, #236ca2, #249da9, #236ca2);
+  background-size: 200% 100%;
+  border-radius: 20px;
+  transition: filter .25s ease, box-shadow .25s ease;
+  transform: translateZ(0);
+  will-change: width;
+}
+.rated-skill:hover .skill-progress [data-slot=progress-indicator] {
+  filter: saturate(1.08) brightness(1.04);
+  box-shadow: 0 0 10px rgba(36, 157, 169, .22);
+  animation: skill-color-rise-fall 1.8s ease-in-out 1;
+}
+
+@keyframes skill-color-rise-fall {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 /* Soft skills */
@@ -2115,14 +2140,25 @@ a:hover { filter: brightness(1.025); }
   border-radius: 12px;
   padding: 15px 19px;
   margin-bottom: 15px;
-  background: linear-gradient(110deg, #daf2fe, #f1fbff);
+  background: linear-gradient(110deg, #d8ecfa, #eff9ff);
   transition: background-color .25s ease, border-color .25s ease,
     box-shadow .25s ease, transform .25s ease;
 }
-.contact-link.LinkedIn { background: linear-gradient(110deg, #dfe9ff, #eef8ff); }
-.contact-link.Facebook { background: linear-gradient(110deg, #dce8ff, #edf4ff); }
-.contact-link.Phone { background: linear-gradient(110deg, #dcf7e7, #edfdf4); }
-.contact-link.GitHub { background: linear-gradient(110deg, #c9f4f6, #eafbff); }
+.contact-link.Email {
+  background: linear-gradient(110deg, #d8ecfa, #eff9ff);
+}
+.contact-link.Phone {
+  background: linear-gradient(110deg, #d4edf8, #ebf8fc);
+}
+.contact-link.LinkedIn {
+  background: linear-gradient(110deg, #d1e9f7, #e7f6fb);
+}
+.contact-link.Facebook {
+  background: linear-gradient(110deg, #cfe6f5, #e5f4fa);
+}
+.contact-link.GitHub {
+  background: linear-gradient(110deg, #c7edf2, #e5f9fb);
+}
 
 .contact-link .round-icon {
   width: 61px;
@@ -3049,6 +3085,30 @@ a:hover { filter: brightness(1.025); }
 .mode-skills .page-heading > p {
   font-size: 18px !important;
   line-height: 1.35 !important;
+}
+
+/* Gallery and Contact — match Education heading style */
+.mode-gallery .editorial h1,
+.mode-contact .page-heading h1 {
+  font-size: var(--text-section) !important;
+  font-weight: 700 !important;
+  line-height: 1.16 !important;
+  letter-spacing: -0.03em !important;
+  margin: 12px 0 !important;
+}
+
+.mode-gallery .editorial h1 em,
+.mode-contact .page-heading h1 em {
+  font-style: normal;
+  color: #0074cb;
+  background: none;
+  -webkit-text-fill-color: initial;
+}
+
+.mode-gallery .editorial > p,
+.mode-contact .page-heading > p {
+  font: 400 18px/1.5 var(--portfolio-font) !important;
+  color: #506c7e !important;
 }
 
 

@@ -152,7 +152,7 @@ function Courses(){
 
 function SkillCard({skill:s,index,soft=false}:{skill:{title:string;text:string;image:string;icon:string;percentage:string};index:number;soft?:boolean}){
 const icons:Record<string,I.LucideIcon>={CodeXml:I.CodeXml,Files:I.Files,ChartNoAxesColumnIncreasing:I.ChartNoAxesColumnIncreasing,PenTool:I.PenTool,Footprints:I.Footprints,FilePenLine:I.FilePenLine,Globe:I.Globe,Mountain:I.Mountain,Satellite:I.Satellite,MessagesSquare:I.MessagesSquare,Puzzle:I.Puzzle,Gauge:I.Gauge,Waypoints:I.Waypoints,Users:I.Users,Clock3:I.Clock3};const Icon=icons[s.icon]||(soft?I.Users:I.Globe);const level=Math.min(100,Math.max(0,Number(s.percentage)||0));
-return <article className={'skill-card rated-skill '+(soft?'soft-skill':'')}><span className="skill-number">{String(index+1).padStart(2,'0')}</span><span className="round-icon">{s.image?<img src={imageUrl(s.image)} alt=""/>:<Icon/>}</span><div className="skill-content"><h3>{s.title}</h3><p>{s.text}</p><div className="skill-rating"><div className="skill-rating-label"><span>Proficiency</span><strong>{level}%</strong></div><Progress className="skill-progress" value={level} aria-label={s.title+' proficiency'}/></div></div></article>
+return <article className={'skill-card rated-skill '+(soft?'soft-skill':'')}><span className="skill-number">{String(index+1).padStart(2,'0')}</span><span className="round-icon">{s.image?<img src={imageUrl(s.image)} alt=""/>:<Icon/>}</span><div className="skill-content"><h3>{s.title}</h3><p>{s.text}</p><div className="skill-rating"><div className="skill-rating-label"><span>Proficiency</span></div><Progress className="skill-progress" value={level} aria-label={s.title+' proficiency'}/></div></div></article>
 }
 
 function SkillsPage(){
@@ -507,7 +507,11 @@ function GalleryPage(){
     <>
       <Heading
         eyebrow="VISUAL JOURNAL"
-        title="Gallery"
+        title={
+          <>
+            Gal<em>lery</em>
+          </>
+        }
         subtitle={p.gallerySubtitle}
         editorial
       />
@@ -689,7 +693,11 @@ function Contact(){
     <>
       <Heading
         eyebrow="GET IN TOUCH"
-        title="Contact"
+        title={
+          <>
+            Con<em>tact</em>
+          </>
+        }
         subtitle={p.contactSubtitle}
       />
 
