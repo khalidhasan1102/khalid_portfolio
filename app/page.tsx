@@ -793,7 +793,13 @@ function Contact(){
             }
           )}
 
-          <div className="contact-map">
+          <a
+            className="contact-map"
+            href="https://maps.app.goo.gl/Hup3xbXEKrxjT6Vz6"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={"Open "+p.location+" in Google Maps"}
+          >
 
             <img
               src="/images/dhaka-map.webp"
@@ -801,17 +807,16 @@ function Contact(){
             />
 
             <div>
-              <h3>
-                <I.MapPin/>
-                {p.location}
+              <h3 className="contact-map-address">
+                Mirpur-12, Dhaka, Bangladesh
               </h3>
 
               <p>
-                Open to research collaboration
+                Click here to see location
               </p>
             </div>
 
-          </div>
+          </a>
 
         </section>
 
